@@ -1,0 +1,218 @@
+{
+  "seed": 42,
+  "total_schemes": 113,
+  "retrieval": {
+    "ablations": [
+      {
+        "layer": "bm25",
+        "hit_at_5": 100.0,
+        "mrr": 0.9933,
+        "avg_latency_ms": 0.18
+      },
+      {
+        "layer": "bge_m3",
+        "hit_at_5": 100.0,
+        "mrr": 0.99,
+        "avg_latency_ms": 3.04
+      },
+      {
+        "layer": "rrf",
+        "hit_at_5": 100.0,
+        "mrr": 0.995,
+        "avg_latency_ms": 119.61
+      },
+      {
+        "layer": "full",
+        "hit_at_5": 100.0,
+        "mrr": 0.9817,
+        "avg_latency_ms": 116.3
+      }
+    ],
+    "by_language_hit5": {
+      "en": 100.0,
+      "hi": 100.0,
+      "kn": 100.0,
+      "ta": 100.0,
+      "te": 100.0
+    }
+  },
+  "multihop": {
+    "graphrag_acc": 100.0,
+    "vanilla_rag_acc": 65.0,
+    "gain_pts": 35.0
+  },
+  "rules": {
+    "verdict_acc": 100.0,
+    "counterfactual_acc": 100.0,
+    "avg_stack_gain_pct": 207.65,
+    "by_category_acc": {
+      "EWS": 100.0,
+      "GEN": 100.0,
+      "OBC": 100.0,
+      "SC": 100.0,
+      "ST": 100.0
+    },
+    "by_gender_acc": {
+      "Female": 100.0,
+      "Male": 100.0
+    }
+  },
+  "scam_and_intent": {
+    "scam_f1": 1.0,
+    "intent_macro_f1": 0.9173
+  },
+  "e2e_agents": {
+    "p50_ms": 91.25,
+    "p95_ms": 110.42,
+    "p95_sec": 0.1104,
+    "faithfulness": 1.0
+  },
+  "ocr_accuracy_pct": 100.0,
+  "fairness": {
+    "language_hit5": {
+      "en": 100.0,
+      "hi": 100.0,
+      "kn": 100.0,
+      "ta": 100.0,
+      "te": 100.0
+    },
+    "language_gap_pts": 0.0,
+    "language_flag": false,
+    "category_verdict_acc": {
+      "EWS": 100.0,
+      "GEN": 100.0,
+      "OBC": 100.0,
+      "SC": 100.0,
+      "ST": 100.0
+    },
+    "category_gap_pts": 0.0,
+    "category_flag": false,
+    "gender_verdict_acc": {
+      "Female": 100.0,
+      "Male": 100.0
+    },
+    "gender_gap_pts": 0.0,
+    "gender_flag": false
+  },
+  "drift": {
+    "psi": 0.0261,
+    "threshold": 0.2,
+    "alert": false,
+    "severity": "OK",
+    "shifted_slices": []
+  },
+  "targets": [
+    {
+      "metric": "Retrieval Hit@5 (Hybrid+Rerank)",
+      "target": ">= 92%",
+      "measured": "100.0%",
+      "status": "PASS",
+      "notes": "Evaluated on 100 5-language gold queries (BM25 baseline: 100.0%)."
+    },
+    {
+      "metric": "Fine-Tuned Embedder Gain (N1)",
+      "target": ">= +10 pts",
+      "measured": "PENDING (Kaggle T4)",
+      "status": "MISSED",
+      "notes": "Cause: Hard constraint forbids local GPU training on 8 GB CPU. Fix: Run notebooks/N1_embedder_ft.ipynb on Kaggle T4."
+    },
+    {
+      "metric": "GraphRAG Multi-Hop Accuracy",
+      "target": ">= 80%",
+      "measured": "100.0%",
+      "status": "PASS",
+      "notes": "Vanilla BM25 RAG baseline: 65.0% (+35.0 pts gain)."
+    },
+    {
+      "metric": "Deterministic Verdict Accuracy",
+      "target": ">= 95%",
+      "measured": "100.0%",
+      "status": "PASS",
+      "notes": "100% deterministic JSON-logic rule engine on 50 gold profiles."
+    },
+    {
+      "metric": "Counterfactual Correctness",
+      "target": "= 100%",
+      "measured": "100.0%",
+      "status": "PASS",
+      "notes": "All 50 profile counterfactuals self-verified via engine.evaluate()."
+    },
+    {
+      "metric": "CRAG / Self-RAG Faithfulness",
+      "target": ">= 0.90",
+      "measured": "1.0",
+      "status": "PASS",
+      "notes": "Measured across 20 end-to-end LangGraph gold queries."
+    },
+    {
+      "metric": "QLoRA + DPO Win Rate (N6)",
+      "target": ">= 65%",
+      "measured": "PENDING (Kaggle T4)",
+      "status": "MISSED",
+      "notes": "Cause: No local GPU. Fix: Run notebooks/N6_qlora_dpo.ipynb on Kaggle T4 (200-prompt LLM-as-judge eval)."
+    },
+    {
+      "metric": "Telugu ASR WER (50 Real Recordings)",
+      "target": "<= 20%",
+      "measured": "PENDING (0 real audio; fixture WER 2.68%)",
+      "status": "MISSED",
+      "notes": "Cause: Real Telugu citizen voice recordings require human collection (listed in HUMAN TODO)."
+    },
+    {
+      "metric": "Rule Extractor Field F1 (N3)",
+      "target": ">= 0.85",
+      "measured": "PENDING (Kaggle T4)",
+      "status": "MISSED",
+      "notes": "Cause: IndicBERT fine-tuning requires Kaggle T4. Fix: Run notebooks/N3_extractor_ft.ipynb."
+    },
+    {
+      "metric": "Intent Classifier Macro F1",
+      "target": ">= 0.90",
+      "measured": "0.9173",
+      "status": "PASS",
+      "notes": "Deterministic multilingual router on 125 labeled queries; N4 DistilBERT notebook ready."
+    },
+    {
+      "metric": "Scam Detector F1",
+      "target": ">= 0.92",
+      "measured": "1.0",
+      "status": "PASS",
+      "notes": "Evaluated on 100 gold messages (50 scam / 50 official); N5 notebook ready."
+    },
+    {
+      "metric": "Document OCR Field Accuracy",
+      "target": ">= 90%",
+      "measured": "100.0%",
+      "status": "PASS",
+      "notes": "Structured extraction + zero-Aadhaar redaction verified on multilingual docs."
+    },
+    {
+      "metric": "End-to-End Latency p95",
+      "target": "< 8.0 s",
+      "measured": "0.1104 s (110.42 ms)",
+      "status": "PASS",
+      "notes": "p50 = 91.25 ms over 20 end-to-end runs."
+    },
+    {
+      "metric": "Cached Welfare Schemes Count",
+      "target": ">= 500 (Day-1 >= 100)",
+      "measured": "113 cached",
+      "status": "MISSED",
+      "notes": "Cause: Day-1 offline cache holds 113 verified schemes (P1 gate >=100 PASSED). Fix: Run live scraper/OGD sync with DATA_GOV_IN_API_KEY to scale to 500+."
+    },
+    {
+      "metric": "Real User Queries Logged",
+      "target": ">= 200",
+      "measured": "0 (pre-launch)",
+      "status": "MISSED",
+      "notes": "Cause: Live user traffic begins post-deployment (listed in HUMAN TODO)."
+    },
+    {
+      "metric": "User Usability Test (SUS, n=10)",
+      "target": "n = 10",
+      "measured": "0 / 10 (pre-launch)",
+      "status": "MISSED",
+      "notes": "Cause: Requires 10 human participants (listed in HUMAN TODO)."
+    }
+  ]
+}

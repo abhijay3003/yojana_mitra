@@ -1,0 +1,10 @@
+{
+  "name": "Yojana Mitra",
+  "description": "Multilingual, agentic, neurosymbolic Indian government welfare-scheme copilot with deterministic eligibility rules, counterfactuals, benefit stacking, GraphRAG, scam detection, and DPDP-compliant PII masking.",
+  "requestFramePermissions": [
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

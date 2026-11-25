@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://yojanamitra.local/rules/schema.json",
+  "title": "Yojana Mitra Deterministic Eligibility Rule Schema",
+  "description": "Strict 10-field citizen profile and predicate schema for neurosymbolic eligibility evaluation.",
+  "type": "object",
+  "properties": {
+    "profile_fields": {
+      "type": "object",
+      "properties": {
+        "age": { "type": "integer", "minimum": 0, "maximum": 120 },
+        "income": { "type": "number", "minimum": 0, "description": "Annual household income in INR" },
+        "state": {
+          "type": "string",
+          "enum": ["Telangana", "Andhra Pradesh", "Karnataka", "Tamil Nadu", "Maharashtra", "Uttar Pradesh", "Bihar", "Rajasthan", "Other"]
+        },
+        "category": {
+          "type": "string",
+          "enum": ["SC", "ST", "OBC", "GEN", "EWS", "Minority"]
+        },
+        "gender": {
+          "type": "string",
+          "enum": ["Female", "Male", "Other"]
+        },
+        "occupation": {
+          "type": "string",
+          "enum": ["Farmer", "Agricultural Laborer", "Student", "Artisan", "Self-Employed", "Salaried", "Unemployed", "Retired"]
+        },
+        "land": { "type": "number", "minimum": 0, "description": "Cultivable land holding in acres" },
+        "disability": { "type": "boolean" },
+        "bpl": { "type": "boolean", "description": "Below Poverty Line / White Ration Card holder" },
+        "residence": { "type": "string", "enum": ["Rural", "Urban"] }
+      }
+    },
+    "predicate": {
+      "type": "object",
+      "required": ["field", "op", "value"],
+      "properties": {
+        "field": {
+          "type": "string",
+          "enum": ["age", "income", "state", "category", "gender", "occupation", "land", "disability", "bpl", "residence"]
+        },
+        "op": {
+          "type": "string",
+          "enum": ["==", "!=", "<=", ">=", "<", ">", "in", "not_in"]
+        },
+        "value": {},
+        "label": { "type": "string" }
+      }
+    }
+  }
+}

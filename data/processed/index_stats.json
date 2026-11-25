@@ -1,0 +1,22 @@
+{
+  "total_schemes": 113,
+  "states": {
+    "Telangana": 21,
+    "All India": 54,
+    "Andhra Pradesh": 12,
+    "Karnataka": 14,
+    "Tamil Nadu": 12
+  },
+  "categories": {
+    "Agriculture": 20,
+    "Women & Social Welfare": 18,
+    "Insurance": 4,
+    "SC/ST Welfare": 10,
+    "Housing & Utilities": 9,
+    "Social Security": 9,
+    "Health": 7,
+    "Employment & Skill": 15,
+    "Education & Scholarship": 14,
+    "Disability Support": 7
+  }
+}

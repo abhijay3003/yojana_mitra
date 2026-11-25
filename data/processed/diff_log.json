@@ -1,0 +1,34 @@
+{
+  "generated_at": "2026-11-25T03:05:55.146909+00:00",
+  "total_schemes": 113,
+  "summary": {
+    "added": 2,
+    "changed": 1,
+    "removed": 0
+  },
+  "added": [
+    {
+      "scheme_id": "TN_NAAN_MUDHALVAN",
+      "name": "Naan Mudhalvan Youth Upskilling & Placement",
+      "state": "Tamil Nadu",
+      "change": "NEW_SCHEME"
+    },
+    {
+      "scheme_id": "TN_MUTHULAKSHMI_MAT",
+      "name": "Dr. Muthulakshmi Reddy Maternity Assistance",
+      "state": "Tamil Nadu",
+      "change": "NEW_SCHEME"
+    }
+  ],
+  "changed": [
+    {
+      "scheme_id": "TS_RYTHU_BHAROSA",
+      "name": "Telangana Rythu Bharosa",
+      "state": "Telangana",
+      "old_benefit_inr": 12000,
+      "new_benefit_inr": 15000,
+      "change": "UPDATED_RULES_OR_BENEFITS"
+    }
+  ],
+  "removed": []
+}

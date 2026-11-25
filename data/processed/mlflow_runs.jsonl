@@ -1,0 +1,16 @@
+{"timestamp": "2026-11-25T02:35:28.618116+00:00", "run_name": "retrieval_bm25", "params": {"mode": "bm25", "n_queries": 100}, "metrics": {"hit_at_5": 87.0, "mrr": 0.8633, "avg_latency_ms": 0.22}, "tags": {}}
+{"timestamp": "2026-11-25T02:35:29.029616+00:00", "run_name": "retrieval_bge_m3", "params": {"mode": "bge_m3", "n_queries": 100}, "metrics": {"hit_at_5": 93.0, "mrr": 0.8953, "avg_latency_ms": 4.11}, "tags": {}}
+{"timestamp": "2026-11-25T02:35:44.704611+00:00", "run_name": "retrieval_rrf", "params": {"mode": "rrf", "n_queries": 100}, "metrics": {"hit_at_5": 87.0, "mrr": 0.865, "avg_latency_ms": 156.74}, "tags": {}}
+{"timestamp": "2026-11-25T02:35:56.382300+00:00", "run_name": "retrieval_full", "params": {"mode": "full", "n_queries": 100}, "metrics": {"hit_at_5": 87.0, "mrr": 0.8417, "avg_latency_ms": 116.76}, "tags": {}}
+{"timestamp": "2026-11-25T02:35:56.445139+00:00", "run_name": "p5_graphrag_multihop", "params": {"n_questions": 40}, "metrics": {"graphrag_acc": 100.0, "vanilla_bm25_acc": 65.0}, "tags": {}}
+{"timestamp": "2026-11-25T02:35:56.494859+00:00", "run_name": "p3_rules_counterfactuals", "params": {"n_profiles": 50}, "metrics": {"verdict_acc": 100.0, "counterfactual_acc": 100.0, "avg_stack_gain_pct": 207.65}, "tags": {}}
+{"timestamp": "2026-11-25T02:35:56.499741+00:00", "run_name": "p6_intent_and_scam", "params": {"n_scam": 100}, "metrics": {"scam_f1": 1.0, "intent_macro_f1": 0.7747}, "tags": {}}
+{"timestamp": "2026-11-25T02:35:58.474791+00:00", "run_name": "p6_e2e_agents", "params": {"n_queries": 20}, "metrics": {"p50_ms": 98.23, "p95_ms": 112.65, "faithfulness": 1.0}, "tags": {}}
+{"timestamp": "2026-11-25T03:05:55.342032+00:00", "run_name": "retrieval_bm25", "params": {"mode": "bm25", "n_queries": 100}, "metrics": {"hit_at_5": 100.0, "mrr": 0.9933, "avg_latency_ms": 0.18}, "tags": {}}
+{"timestamp": "2026-11-25T03:05:55.646738+00:00", "run_name": "retrieval_bge_m3", "params": {"mode": "bge_m3", "n_queries": 100}, "metrics": {"hit_at_5": 100.0, "mrr": 0.99, "avg_latency_ms": 3.04}, "tags": {}}
+{"timestamp": "2026-11-25T03:06:07.608387+00:00", "run_name": "retrieval_rrf", "params": {"mode": "rrf", "n_queries": 100}, "metrics": {"hit_at_5": 100.0, "mrr": 0.995, "avg_latency_ms": 119.61}, "tags": {}}
+{"timestamp": "2026-11-25T03:06:19.238514+00:00", "run_name": "retrieval_full", "params": {"mode": "full", "n_queries": 100}, "metrics": {"hit_at_5": 100.0, "mrr": 0.9817, "avg_latency_ms": 116.3}, "tags": {}}
+{"timestamp": "2026-11-25T03:06:19.303404+00:00", "run_name": "p5_graphrag_multihop", "params": {"n_questions": 40}, "metrics": {"graphrag_acc": 100.0, "vanilla_bm25_acc": 65.0}, "tags": {}}
+{"timestamp": "2026-11-25T03:06:19.354581+00:00", "run_name": "p3_rules_counterfactuals", "params": {"n_profiles": 50}, "metrics": {"verdict_acc": 100.0, "counterfactual_acc": 100.0, "avg_stack_gain_pct": 207.65}, "tags": {}}
+{"timestamp": "2026-11-25T03:06:19.359664+00:00", "run_name": "p6_intent_and_scam", "params": {"n_scam": 100}, "metrics": {"scam_f1": 1.0, "intent_macro_f1": 0.9173}, "tags": {}}
+{"timestamp": "2026-11-25T03:06:21.199009+00:00", "run_name": "p6_e2e_agents", "params": {"n_queries": 20}, "metrics": {"p50_ms": 91.25, "p95_ms": 110.42, "faithfulness": 1.0}, "tags": {}}
